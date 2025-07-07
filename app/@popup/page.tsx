@@ -27,7 +27,7 @@ export default function PopUpPage() {
       <div className="flex gap-4 flex-wrap">
         {[...new Array(total).fill(null)].map((el, i) => (
           <Button
-            key={`popup_icon_${el}`}
+            key={`popup_icon_${el}-${i}`}
             color={i < available - 1 ? "primary" : "warning"}
             isIconOnly={true}
             variant="light"
