@@ -1,88 +1,31 @@
-"use client";
-import { EyeIcon, RouteIcon } from "lucide-react";
-import { useRouter } from "next/navigation";
+'use client';
 
-import { Button } from "@/components/ui/button";
-import Card from "@/components/ui/card";
+import Link from 'next/link';
 
 export default function Home() {
-  const router = useRouter();
-  const items = [
-    {
-      id: 1,
-      name: "Station 1",
-      distance: "14 km",
-      available: 5,
-      occupied: 4,
-    },
-    {
-      id: 2,
-      name: "Station 2",
-      distance: "1 km",
-      available: 2,
-      occupied: 4,
-    },
-    {
-      id: 3,
-      name: "Station 3",
-      distance: "2 km",
-      available: 2,
-      occupied: 4,
-    },
-    {
-      id: 4,
-      name: "Station 4",
-      distance: "1 km",
-      available: 5,
-      occupied: 4,
-    },
-  ];
+   return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 px-4">
+         <div className="max-w-md w-full text-center">
+            <h1 className="text-4xl font-bold mb-4 text-gray-800">Welcome to Pop Up</h1>
+            <p className="text-gray-600 mb-8">
+               Please login or sign up to continue.
+            </p>
 
-  return (
-    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      {items.map((el, idx) => (
-        <Card
-          key={`${el.name}-${idx}`}
-          bodyRender={
-            <>
-              {/* <Image
-              alt="Card background"
-              className="object-cover rounded-xl w-full"
-              src="https://heroui.com/images/hero-card-complete.jpeg"
-            /> */}
-            </>
-          }
-          fullWidth={true}
-          titleRender={
-            <div className=" flex justify-between mt-4 w-full">
-              <div className="">
-                <p className="text-tiny uppercase font-bold">{el.name}</p>
-                <div className="gap-4 flex">
-                  <small className="text-default-500">
-                    Available: {el.available}
-                  </small>
-                  <small className="text-default-500">
-                    In use: {el.occupied}
-                  </small>
-                </div>
-                <h4 className="font-bold text-large">
-                  Distance: <span>{el.distance}</span>
-                </h4>
-              </div>
-              <div className="flex gap-4">
-                <Button type="button" variant="ghost">
-                  <RouteIcon />
-                  Get Direction
-                </Button>
-                <Button onPress={() => router.push(`/?id=${el.id}`)}>
-                  View
-                  <EyeIcon />
-                </Button>
-              </div>
+            <div className="flex justify-center gap-4">
+               <Link
+                  href="/auth/login"
+                  className="px-6 py-3 bg-blue-600 text-white rounded-xl font-medium shadow-md hover:bg-blue-700 transition"
+               >
+                  Log In
+               </Link>
+               <Link
+                  href="/auth/signup"
+                  className="px-6 py-3 bg-gray-200 text-gray-800 rounded-xl font-medium shadow-md hover:bg-gray-300 transition"
+               >
+                  Sign Up
+               </Link>
             </div>
-          }
-        />
-      ))}
-    </section>
-  );
+         </div>
+      </div>
+   );
 }
