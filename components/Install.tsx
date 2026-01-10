@@ -17,10 +17,10 @@ export default function InstallPWA() {
   }, []);
 
   const installPWA = () => {
-    if (deferredPrompt) {
-      deferredPrompt.prompt();
-      deferredPrompt.userChoice.then(() => setDeferredPrompt(null));
-    }
+    // if (deferredPrompt) {
+    //   deferredPrompt.prompt();
+    //   deferredPrompt.userChoice.then(() => setDeferredPrompt(null));
+    // }
   };
 
   return (

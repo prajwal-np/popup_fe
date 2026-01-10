@@ -31,9 +31,9 @@ export default function HistoryPage() {
           price: "154",
           status: "Paid",
         },
-      ].map((el) => (
+      ].map((el, idx) => (
         <Card
-          key={`history-card-${el.id}`}
+          key={`history-card-${el.id}-${idx}`}
           bodyRender={
             <div className="flex flex-col gap-2">
               <div className="flex justify-between">
